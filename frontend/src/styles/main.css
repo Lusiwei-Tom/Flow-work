@@ -1,0 +1,136 @@
+html, body, #app {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC',
+    'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+  background: #f5f3ef;
+  color: #3d3d3d;
+}
+
+/* ---- Element Plus 暖色主题覆盖 ---- */
+:root {
+  --el-color-primary: #6c9a8b;
+  --el-color-primary-light-3: #8db5a6;
+  --el-color-primary-light-5: #aecdbf;
+  --el-color-primary-light-7: #cfe5d8;
+  --el-color-primary-light-8: #e0ede4;
+  --el-color-primary-light-9: #eef5f0;
+  --el-color-primary-dark-2: #5a8475;
+  --el-border-radius-base: 10px;
+  --el-box-shadow-light: 0 2px 12px rgba(80, 76, 60, 0.06);
+  --el-box-shadow: 0 2px 12px rgba(80, 76, 60, 0.08);
+  --el-box-shadow-dark: 0 4px 20px rgba(80, 76, 60, 0.12);
+}
+
+/* 全局滚动条柔和化 */
+::-webkit-scrollbar { width: 7px; height: 7px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(120, 115, 100, 0.2); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(120, 115, 100, 0.35); }
+
+.text-primary { color: #6c9a8b; }
+
+/* ---- 看板 ---- */
+.board-columns {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  overflow-x: auto;
+  padding: 12px;
+  height: calc(100vh - 150px);
+}
+
+.board-column {
+  background: #ecebe5;
+  border-radius: 14px;
+  width: 290px;
+  min-width: 290px;
+  display: flex;
+  flex-direction: column;
+  max-height: 100%;
+  border: 1px solid rgba(120, 115, 100, 0.08);
+}
+
+.board-column-header {
+  padding: 12px 14px;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #5a5a52;
+}
+
+.board-column-body {
+  padding: 6px 8px;
+  overflow-y: auto;
+  flex: 1;
+  min-height: 60px;
+}
+
+.task-card {
+  background: #fffdf9;
+  border-radius: 12px;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  box-shadow: 0 1px 4px rgba(80, 76, 60, 0.06);
+  cursor: pointer;
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+  border: 1px solid rgba(120, 115, 100, 0.06);
+}
+
+.task-card:hover {
+  box-shadow: 0 4px 16px rgba(80, 76, 60, 0.1);
+  transform: translateY(-1px);
+}
+
+.task-card .priority-bar {
+  display: inline-block;
+  width: 4px;
+  height: 14px;
+  border-radius: 2px;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+/* ---- AI 对话 ---- */
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 220px);
+}
+
+.chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+}
+
+.chat-bubble {
+  max-width: 80%;
+  padding: 12px 16px;
+  border-radius: 16px;
+  margin-bottom: 14px;
+  line-height: 1.7;
+  white-space: pre-wrap;
+  word-break: break-word;
+  animation: bubble-in 0.3s ease;
+}
+
+@keyframes bubble-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.chat-bubble.user {
+  background: linear-gradient(135deg, #6c9a8b, #7aab9a);
+  color: #fff;
+  margin-left: auto;
+  border-bottom-right-radius: 4px;
+}
+
+.chat-bubble.ai {
+  background: #fffdf9;
+  border: 1px solid rgba(120, 115, 100, 0.1);
+  border-bottom-left-radius: 4px;
+}

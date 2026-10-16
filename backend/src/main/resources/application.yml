@@ -1,0 +1,55 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+
+spring:
+  application:
+    name: flowwork-backend
+  profiles:
+    active: dev
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: Asia/Shanghai
+    default-property-inclusion: non_null
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 20MB
+
+# MyBatis-Plus
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      logic-delete-field: deleted
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+
+# JWT 配置（生产环境请用环境变量覆盖 JWT_SECRET）
+flowwork:
+  jwt:
+    secret: ${JWT_SECRET:Zmxvd3dvcmstand0LXNlY3JldC1rZXktZm9yLWRldmVsb3BtZW50LW9ubHktMjAyNg==}
+    access-token-ttl: 7200        # 2 小时（秒）
+    refresh-token-ttl: 604800    # 7 天（秒）
+    max-refresh-count: 3
+  upload:
+    dir: ${UPLOAD_DIR:./uploads}
+  ai:
+    # AI 功能开关：未配置 Key 时启动不报错，仅 AI 接口不可用
+    enabled: ${AI_ENABLED:true}
+
+# SpringDoc
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+  api-docs:
+    path: /v3/api-docs
+
+logging:
+  level:
+    com.flowwork: debug
+    org.springframework.security: info

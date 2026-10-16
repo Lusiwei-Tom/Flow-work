@@ -1,0 +1,65 @@
+{
+  "name": "FlowWork",
+  "displayName": "FlowWork — AI 驱动团队项目协作平台",
+  "version": "0.1.0",
+  "description": "基于 Spring AI Alibaba 构建的 AI Agent + 业务系统深度融合的全栈项目，支持 AI 自动任务拆解、ToolCalling 业务执行、项目知识库 RAG、WebSocket 实时协同、RBAC 权限管控。",
+  "createdAt": "2026-09-10",
+  "status": "draft",
+
+  "techStack": {
+    "backend": {
+      "language": "Java 17",
+      "framework": "Spring Boot 3.4.x",
+      "ai": "Spring AI 1.1.2 + Spring AI Alibaba 1.1.2.2",
+      "orm": "MyBatis-Plus 3.5.x",
+      "security": "Spring Security 6.x + JWT",
+      "realtime": "Spring WebSocket + STOMP",
+      "apiDoc": "SpringDoc OpenAPI 2.x"
+    },
+    "data": {
+      "mysql": "8.0.x",
+      "redis": "7.x",
+      "vectorStore": "Spring AI VectorStore"
+    },
+    "frontend": {
+      "framework": "Vue 3.4+",
+      "language": "TypeScript 5.x",
+      "buildTool": "Vite 5.x",
+      "stateManagement": "Pinia 2.x",
+      "router": "Vue Router 4.x",
+      "uiLibrary": "Element Plus 2.x",
+      "websocketClient": "SockJS + STOMP.js"
+    }
+  },
+
+  "keyFeatures": [
+    "AI 自动拆解项目任务",
+    "ReactAgent ToolCalling 业务执行",
+    "Graph 工作流编排",
+    "AI 会议纪要 → 结构化任务",
+    "项目知识库 RAG 检索",
+    "WebSocket + STOMP 实时看板协作",
+    "RBAC 用户-角色-权限三级体系",
+    "AI 风险分析 + 自动周报"
+  ],
+
+  "excludedTechnologies": [
+    "MQ / RabbitMQ / Kafka",
+    "Nacos / Gateway / 微服务",
+    "Elasticsearch",
+    "MinIO",
+    "Docker / K8s",
+    "XXL-JOB / Sentinel",
+    "Flowable"
+  ],
+
+  "spec": {
+    "version": "3.2",
+    "root": "specs",
+    "phases": [
+      { "name": "overview", "status": "pending", "required": true },
+      { "name": "modules", "status": "pending", "requires": "overview" },
+      { "name": "development", "status": "pending", "requires": "modules" }
+    ]
+  }
+}
